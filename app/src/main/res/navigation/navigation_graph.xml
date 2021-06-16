@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/nodeFragment"
-        android:name="com.example.mvvmpattern.screens.NodeFragment"
+        android:name="com.example.mvvmpattern.screens.NoteFragment"
         android:label="fragment_node"
-        tools:layout="@layout/fragment_node" >
+        tools:layout="@layout/fragment_note" >
         <action
             android:id="@+id/action_nodeFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
