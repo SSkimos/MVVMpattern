@@ -32,6 +32,11 @@ class StartFragment : Fragment() {
         initialization()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun initialization(){
         mViewModel = ViewModelProvider(this).get(StartFragmentViewModel:: class.java)
         mBinding.btnRoom.setOnClickListener{
