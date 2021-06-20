@@ -32,4 +32,15 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MainHolder>() {
         mListNotes = list
         notifyDataSetChanged() //обновляем адаптер
     }
+
+    override fun onViewAttachedToWindow(holder: MainHolder) {
+        holder.itemView.setOnClickListener{
+            MainFragment.click(mListNotes[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: MainHolder) {
+        holder.itemView.setOnClickListener(null)
+        super.onViewDetachedFromWindow(holder)
+    }
 }

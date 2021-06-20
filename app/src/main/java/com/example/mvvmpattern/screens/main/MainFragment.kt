@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmpattern.R
@@ -50,7 +49,7 @@ class MainFragment : Fragment() {
         mViewModel = ViewModelProvider(this).get(MainFragmentViewModel:: class.java)
         mViewModel.allNotes.observe(this, mObserverList)
         mBinding.btnAddNote.setOnClickListener{
-            APP_ACTIVITY.mNavController.navigate(R.id.action_mainFragment_to_addNewFragment)
+            APP_ACTIVITY.navController.navigate(R.id.action_mainFragment_to_addNewFragment)
         }
     }
 
@@ -60,5 +59,13 @@ class MainFragment : Fragment() {
         _binding = null
         mViewModel.allNotes.removeObserver(mObserverList)
         mRecyclerView.adapter = null
+    }
+
+    companion object{
+        fun click(note: AppNote) {
+            val bundle = Bundle()
+            bundle.putSerializable("note", note)
+            APP_ACTIVITY.navController.navigate(R.id.action_mainFragment_to_noteFragment, bundle)
+        }
     }
 }

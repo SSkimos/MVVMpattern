@@ -1,4 +1,4 @@
-package com.example.mvvmpattern.screens.add_new_note
+package com.example.mvvmpattern.screens.note
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -9,11 +9,10 @@ import com.example.mvvmpattern.utilits.showToast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AddNewFragmentViewModel(application: Application) : AndroidViewModel(application) {
-    //используется специальная корутина, которая помогает рабоатать в режиме life cycle
-    fun insert(note: AppNote, onSuccess: () -> Unit) =
+class NoteFragmentViewModel(application: Application) : AndroidViewModel(application) {
+    fun delete(note: AppNote, onSuccess: () -> Unit) =
         viewModelScope.launch(Dispatchers.Main) {
-            REPOSITORY.insert(note) {
+            REPOSITORY.delete(note) {
                 onSuccess()
             }
         }

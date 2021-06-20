@@ -15,15 +15,6 @@
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/nodeFragment"
-        android:name="com.example.mvvmpattern.screens.NoteFragment"
-        android:label="fragment_node"
-        tools:layout="@layout/fragment_note" >
-        <action
-            android:id="@+id/action_nodeFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.mvvmpattern.screens.main.MainFragment"
         android:label="fragment_main"
@@ -35,8 +26,8 @@
             android:id="@+id/action_mainFragment_to_addNewFragment"
             app:destination="@id/addNewFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_nodeFragment"
-            app:destination="@id/nodeFragment" />
+            android:id="@+id/action_mainFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"
@@ -45,6 +36,15 @@
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.mvvmpattern.screens.note.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

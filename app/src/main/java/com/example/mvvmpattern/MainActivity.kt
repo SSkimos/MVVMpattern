@@ -2,8 +2,6 @@ package com.example.mvvmpattern
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -12,7 +10,7 @@ import com.example.mvvmpattern.utilits.APP_ACTIVITY
 
 class MainActivity : AppCompatActivity() {
     lateinit var mToolbar: Toolbar
-    lateinit var mNavController: NavController
+    lateinit var navController: NavController
     private var _binding: ActivityMainBinding? = null
     val mBinding get() = _binding!!
 
@@ -22,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         APP_ACTIVITY = this
         mToolbar = mBinding.toolBar
-        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         setSupportActionBar(mToolbar)
         title = getString(R.string.title)
     }

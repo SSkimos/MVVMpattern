@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.mvvmpattern.R
 import com.example.mvvmpattern.databinding.FragmentAddNewBinding
-import com.example.mvvmpattern.databinding.FragmentMainBinding
 import com.example.mvvmpattern.models.AppNote
-import com.example.mvvmpattern.screens.main.MainFragmentViewModel
 import com.example.mvvmpattern.utilits.APP_ACTIVITY
 import com.example.mvvmpattern.utilits.showToast
 
@@ -44,7 +42,7 @@ class AddNewFragment : Fragment() {
                 showToast(getString(R.string.toastEnterName))
             } else {
                 mViewModel.insert(AppNote(name = name, text = text)) {
-                    APP_ACTIVITY.mNavController.navigate(R.id.action_addNewFragment_to_mainFragment)
+                    APP_ACTIVITY.navController.navigate(R.id.action_addNewFragment_to_mainFragment)
                 }
             }
         }
